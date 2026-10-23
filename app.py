@@ -1,27 +1,17 @@
-from flask import Flask
-from uuid import UUID
+from flask import Flask, request
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return 'Hello Aditya'
+    return 'Hello World'
 
-@app.route("/student/<uuid:user_id>")
-def user(user_id):
-    return str(user_id)
+@app.route("/search")
+def search():
+    name = request.args.get("name", "guest")
+    course = request.args.get("course", "unknown")
+    return f'Hello, {name} is in {course}'
 
-@app.route("/price/<float:amount>")
-def price(amount):
-    return f'Price, {amount}'
-
-@app.route("/username/<string:name>")
-def username(name):
-    return f'Username: {name}'
-
-@app.route("/file/<path:file_path>")
-def file(file_path):
-    return f'File path: {file_path}'
 
 if __name__ == '__main__':
     app.run(debug=True)
