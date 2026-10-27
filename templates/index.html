@@ -6,20 +6,17 @@
     <title>Flask tutorial</title>
 </head>
 <body>
-    {% if is_logged_in %}
-    <h1>Welcome back!</h1>
-    {% else %}
-    <h1>Welcome Guest!</h1>
-    {% endif %}
+    <ul>
+        {% for course in courses %}
+        <li>{{loop.index}} {{course}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <ul>
+        {% for key,value in student.items() %}
+        <li>{{ key }}  {{ value }}</li>
+        {% endfor %}
+    </ul>
 
-    {% if marks >= 90 %}
-    <h1>Grade A</h1>
-    {% elif marks >= 80 %}
-    <h1>Grade B</h1>
-    {% elif marks >= 70 %}
-    <h1>Grade C</h1>
-    {% else %}
-    <h1>Fail</h1>
-    {% endif %}
 </body>
 </html>
