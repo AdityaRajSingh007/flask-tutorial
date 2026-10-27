@@ -6,10 +6,20 @@
     <title>Flask tutorial</title>
 </head>
 <body>
-    <h1>Hello, {{ name }} and I study total {{course | length}} courses in  {{ city }} and my age is {{ age }}</h1>
-    {# <p>This is my html file</p> #}
-    <p>{{ 10 + 20 }}</p>
-    <h2>{{first_name | upper}} {{last_name}}</h2>
-    <h2>{{'welcome' + ' ' + 'rohit '}}</h2>
+    {% if is_logged_in %}
+    <h1>Welcome back!</h1>
+    {% else %}
+    <h1>Welcome Guest!</h1>
+    {% endif %}
+
+    {% if marks >= 90 %}
+    <h1>Grade A</h1>
+    {% elif marks >= 80 %}
+    <h1>Grade B</h1>
+    {% elif marks >= 70 %}
+    <h1>Grade C</h1>
+    {% else %}
+    <h1>Fail</h1>
+    {% endif %}
 </body>
 </html>
